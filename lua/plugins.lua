@@ -26,6 +26,7 @@ vim.pack.add({
 	"https://github.com/HiPhish/rainbow-delimiters.nvim", -- Rainbow matching ({[]}) etc
 	"https://github.com/norcalli/nvim-colorizer.lua", -- Hex color codes preview
 	"https://github.com/folke/todo-comments.nvim", -- Highlight and find TODO comments
+	"https://github.com/lewis6991/gitsigns.nvim.git", -- Git signs
 
 	-- Misc
 	"https://github.com/folke/which-key.nvim", -- Keybinds help menu
@@ -59,6 +60,7 @@ require("todo-comments").setup()
 require("ibl").setup()
 require("which-key").setup()
 require("rainbow-delimiters.setup").setup({})
+require("gitsigns").setup()
 require("lualine").setup({
 	sections = {
 		lualine_c = { "filename", "macro_recording", "%S" },
