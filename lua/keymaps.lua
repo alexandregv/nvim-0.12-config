@@ -30,6 +30,8 @@ if not vim.pack then -- pack needs nvim 0.12+, skip following keymaps if plugins
 	return
 end
 
+vim.keymap.set("n", "<leader>F", "<cmd>FzfLua files<CR>", { desc = "Browse files with FzfLua" })
+
 -- LSP
 keymap("n", "gd", function() vim.lsp.buf.definition() end, { noremap = true, silent = true, desc = "Go to definition (LSP)"})
 
