@@ -16,6 +16,8 @@ require("mason-tool-installer").setup({
 	},
 })
 
+vim.diagnostic.config({ virtual_text = true }) -- Enable diagnostics as virtual_text (appears to the right of the line)
+
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
