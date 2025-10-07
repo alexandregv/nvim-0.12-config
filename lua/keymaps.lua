@@ -49,3 +49,29 @@ keymap("x", "<leader>/","<Esc><Cmd>lua require('Comment.api').locked('toggle.lin
 
 -- Symbols
 vim.keymap.set("n", "<leader>s", "<cmd>AerialToggle!<CR>", { desc = "Toggle Symbols (Aerial)" })
+
+
+-- Keep track of the last window we came from
+local last_win = nil
+local function jump_float()
+  local cur_win = vim.api.nvim_get_current_win()
+
+  -- If we're in a floating window and have a stored window, go back
+  if vim.api.nvim_win_get_config(cur_win).relative ~= "" and last_win and vim.api.nvim_win_is_valid(last_win) then
+    vim.api.nvim_set_current_win(last_win)
+    last_win = nil
+    return
+  end
+
+  -- Otherwise, try to find a floating window
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local config = vim.api.nvim_win_get_config(win)
+    if config.relative ~= "" then -- floating window
+      last_win = cur_win
+      vim.api.nvim_set_current_win(win)
+      return
+    end
+  end
+end
+
+vim.keymap.set("n", "<C-w>f", jump_float, { desc = "Jump to/from floating window" })
