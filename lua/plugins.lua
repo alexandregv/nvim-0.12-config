@@ -78,8 +78,9 @@ require("nvim-treesitter.configs").setup({
 	indent = { enable = true },
 })
 
+-- https://github.com/onsails/lspkind.nvim/blob/d79a1c3299ad0ef94e255d045bed9fa26025dab6/lua/lspkind/init.lua#L34-L60
 require("blink.cmp").setup({
-	keymap = { preset = 'default' }, -- See https://cmp.saghen.dev/installation.html#lazy-nvim and https://cmp.saghen.dev/configuration/keymap.html#presets
+	keymap = { preset = 'enter' }, -- See https://cmp.saghen.dev/installation.html#lazy-nvim and https://cmp.saghen.dev/configuration/keymap.html#presets
 	appearance = { nerd_font_variant = 'mono' },
 	completion = { documentation = { auto_show = false } },
 	sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
