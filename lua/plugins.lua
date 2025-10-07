@@ -15,7 +15,6 @@ vim.pack.add({
 	"https://github.com/mason-org/mason-lspconfig.nvim",            -- Use lspconfig names instead of Mason names + automatically enable servers
 	"https://github.com/neovim/nvim-lspconfig",	                    -- Pre-made LSP configs
 	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim", -- Ensure installation of tools (declaratively)
-	"https://github.com/onsails/lspkind.nvim",                      -- LSP icons
 
 	-- Formatting & completion
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master" },  -- Parsing and syntax lib (master branch, main is a complete rework, not ready yet)
@@ -39,7 +38,6 @@ vim.pack.add({
 	"https://github.com/numToStr/Comment.nvim",        -- Easy comments (might require github.com/JoosepAlviste/nvim-ts-context-commentstring later, will see)
 	"https://github.com/stevearc/aerial.nvim",         -- Code outline window (symbols)
 	"https://github.com/ibhagwan/fzf-lua",             -- Fuzzy
-
 })
 
 require("better_escape").setup()
