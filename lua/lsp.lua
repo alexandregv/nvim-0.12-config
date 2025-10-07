@@ -2,21 +2,21 @@ if not vim.pack then -- pack needs nvim 0.12+, LSP can't be configured without p
 	return
 end
 
-require("lspkind").setup()
+local lsp_servers = {
+	"lua_ls",
+	"gopls",
+}
+
+local tools = {
+	"stylua",
+
+	"goimports",
+	"golangci-lint",
+}
+
 require("mason").setup()
-require("mason-lspconfig").setup({ automatic_enable = true })
-require("mason-tool-installer").setup({
-	ensure_installed = {
-		"lua_ls",
-		"stylua",
-
-		"gopls",
-		"goimports",
-		"golangci-lint",
-	},
-})
-
-vim.diagnostic.config({ virtual_text = true }) -- Enable diagnostics as virtual_text (appears to the right of the line)
+require("mason-lspconfig").setup({ automatic_enable = true, ensure_installed = lsp_servers })
+require("mason-tool-installer").setup({ ensure_installed = tools })
 
 vim.lsp.config("lua_ls", {
 	settings = {
@@ -36,3 +36,6 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
+
+vim.lsp.enable(lsp_servers)
+vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
