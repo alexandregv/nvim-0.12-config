@@ -7,8 +7,8 @@ vim.pack.add({
 
 	-- Libs
 	"https://github.com/nvim-lua/plenary.nvim", -- Utils lib
-	"https://github.com/MunifTanjim/nui.nvim",  -- UI lib
-	"https://github.com/rcarriga/nvim-notify",  -- Notifications lib
+	--"https://github.com/MunifTanjim/nui.nvim",  -- UI lib
+	--"https://github.com/rcarriga/nvim-notify",  -- Notifications lib
 
 	-- LSP
 	"https://github.com/mason-org/mason.nvim",                      -- Install external tools (LSPs, linters, etc) easily
