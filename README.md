@@ -4,6 +4,8 @@ Well, I went down that road again...
 Following nvim 0.11's simplified LSP setup and nvim 0.12's new [native package manager](https://neovim.io/doc/user/pack.html), I decided to start from scratch.  
 I took my current setup, based on AstroNvim, and tried to reproduce what I used the most while keeping the setup lightweight and simple.
 
+![Screenshot](./screen.jpg)
+
 My goals were:
 
 - Fully-featured LSP setup.
