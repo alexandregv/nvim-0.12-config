@@ -43,3 +43,5 @@ Single-file is just simple, it just works, and is easier to share, maybe to navi
 
 As a compromise, I created a [`flatten.lua`](.flatten.lua) script which parses `init.lua` and inlines the `require(<module>)` by their content.  
 It is designed to be ran with Neovim's embedded Lua: `nvim --headless -l flatten.lua > init_flattened.lua`.
+
+![Screenshot with folds](./screen-folds.jpg)
