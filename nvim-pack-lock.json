@@ -78,10 +78,6 @@
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
-    "rainbow-delimiters.nvim": {
-      "rev": "3277ad5",
-      "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
-    },
     "todo-comments.nvim": {
       "rev": "304a8d2",
       "src": "https://github.com/folke/todo-comments.nvim"
