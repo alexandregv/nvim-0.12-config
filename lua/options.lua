@@ -41,6 +41,6 @@ opt.scrolloff = 8 -- Keep 8 lines above and below the cursor
 opt.inccommand = "nosplit" -- Shows the effects of a command incrementally in the buffer
 opt.completeopt = { "menuone", "popup", "noinsert" } -- Options for completion menu
 opt.winborder = "rounded" -- Use rounded borders for windows
-
+opt.modeline = false -- Disable modeline for security
 g.mapleader = " " -- Set <leader> to Space
 cmd.filetype("plugin indent on") -- Enable filetype detection, plugins, and indentation
