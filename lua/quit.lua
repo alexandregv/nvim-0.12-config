@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd("WinEnter", {
 
     -- Close all terminal buffers (kills jobs; avoids hanging Neovim)
     for _, b in ipairs(term_bufs) do
-      pcall(vim.api.nvim_buf_delete, b, { force = true })
+      pcall(vim.api.nvim_feedkeys(":q\r", "n", false), b, {})
     end
 
     -- After terminals are gone, if netrw is the only remaining window, quit it.
