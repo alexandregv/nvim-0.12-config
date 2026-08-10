@@ -17,7 +17,7 @@ vim.pack.add({
 	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim", -- Ensure installation of tools (declaratively)
 
 	-- Formatting & completion
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master" },  -- Parsing and syntax lib (master branch, main is a complete rework, not ready yet)
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },    -- Parsing and syntax lib
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range('1.0') }, -- Completion
 
 	-- UI
@@ -70,14 +70,16 @@ require("lualine").setup({
 	},
 })
 
-require("nvim-treesitter.configs").setup({
-	modules = {},
-	auto_install = true,
-	ensure_installed = { "go" },
-	ignore_install = {},
-	sync_install = false,
-	highlight = { enable = true },
-	indent = { enable = true },
+require('nvim-treesitter').install({
+	'go', 'python', 'javascript', 'typescript',
+	'dockerfile', 'bash', 'markdown',
+	'yaml', 'json', 'toml',
+	'html', 'css',
+})
+vim.api.nvim_create_autocmd('FileType', {
+	callback = function(ev)
+		pcall(vim.treesitter.start, ev.buf)
+	end,
 })
 
 -- https://github.com/onsails/lspkind.nvim/blob/d79a1c3299ad0ef94e255d045bed9fa26025dab6/lua/lspkind/init.lua#L34-L60

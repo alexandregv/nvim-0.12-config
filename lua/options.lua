@@ -29,7 +29,10 @@ opt.undodir = os.getenv('HOME') .. '/.vim/undodir' -- Directory for undo files
 -- Folds
 opt.foldcolumn = '1' -- Show fold column
 opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').' ... ' . '(' . (v:foldend - v:foldstart + 1) . ' lines)']]
-opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep:│,foldclose:]]
+opt.foldlevelstart = 99 -- Do not close folds by default``
+opt.foldmethod = "expr" -- Use tree-sitter folds
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Use tree-sitter folds
+opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep:│,foldclose:]] -- Use special chars for folds
 
 -- Misc
 opt.termguicolors = true -- Enable true colors
