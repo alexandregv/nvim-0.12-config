@@ -29,13 +29,13 @@ local function quickterm(autoinsert)
 end
 
 -- Always open terminal
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		local previousWin = vim.api.nvim_get_current_win()
-		quickterm(false)
-		vim.api.nvim_set_current_win(previousWin)
-	end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+-- 	callback = function()
+-- 		local previousWin = vim.api.nvim_get_current_win()
+-- 		quickterm(false)
+-- 		vim.api.nvim_set_current_win(previousWin)
+-- 	end,
+-- })
 
 -- Keymap
 -- //TODO: Replace by a new command, mapped in keymaps.lua
