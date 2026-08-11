@@ -18,7 +18,7 @@ vim.pack.add({
 
 	-- Formatting & completion
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },    -- Parsing and syntax lib
-	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range('1.0') }, -- Completion
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range('1.*') }, -- Completion
 
 	-- UI
 	"https://github.com/nvim-lualine/lualine.nvim",             -- Status line
