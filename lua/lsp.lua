@@ -2,9 +2,14 @@ if not vim.pack then -- pack needs nvim 0.12+, LSP can't be configured without p
 	return
 end
 
-local lsp_servers = {
+local mason_servers = {
 	"lua_ls",
 	"gopls",
+}
+
+local lsp_servers = {
+	unpack(mason_servers),
+	"yamlls",
 }
 
 local tools = {
@@ -15,7 +20,7 @@ local tools = {
 }
 
 require("mason").setup()
-require("mason-lspconfig").setup({ automatic_enable = true, ensure_installed = lsp_servers })
+require("mason-lspconfig").setup({ automatic_enable = true, ensure_installed = mason_servers })
 require("mason-tool-installer").setup({ ensure_installed = tools })
 
 vim.lsp.config("lua_ls", {
@@ -50,6 +55,9 @@ vim.lsp.config('gopls', {
       },
     },
   },
+})
+vim.lsp.config('yamlls', {
+	cmd = { 'yaml-schema-router' },
 })
 
 vim.lsp.enable(lsp_servers)
