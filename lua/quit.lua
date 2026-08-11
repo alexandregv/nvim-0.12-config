@@ -1,4 +1,8 @@
 -- Auto close terminals and netrw when no real file windows remain
+local function is_floating(win)
+  return vim.api.nvim_win_get_config(win).relative ~= ""
+end
+
 vim.api.nvim_create_augroup("netrw_term_close", { clear = true })
 vim.api.nvim_create_autocmd("WinEnter", {
   group = "netrw_term_close",
@@ -9,16 +13,19 @@ vim.api.nvim_create_autocmd("WinEnter", {
     local term_bufs = {}
 
     for _, win in ipairs(wins) do
-      local buf = vim.api.nvim_win_get_buf(win)
-      local ft  = vim.bo[buf].filetype
-      local bt  = vim.bo[buf].buftype
-      if ft == "netrw" then
-        has_netrw = true
-      elseif bt == "terminal" then
-        table.insert(term_bufs, buf)
-      else
-        only_netrw_or_term = false
-        break
+      -- Skip floating windows (ui2 cmd/msg/dialog/pager, LSP popups, ...)
+      if not is_floating(win) then
+        local buf = vim.api.nvim_win_get_buf(win)
+        local ft  = vim.bo[buf].filetype
+        local bt  = vim.bo[buf].buftype
+        if ft == "netrw" then
+          has_netrw = true
+        elseif bt == "terminal" then
+          table.insert(term_bufs, buf)
+        else
+          only_netrw_or_term = false
+          break
+        end
       end
     end
 
@@ -31,8 +38,12 @@ vim.api.nvim_create_autocmd("WinEnter", {
 
     -- After terminals are gone, if netrw is the only remaining window, quit it.
     vim.schedule(function()
-      if #vim.api.nvim_list_wins() == 1 and has_netrw then
-        local buf = vim.api.nvim_win_get_buf(0)
+      local real_wins = vim.tbl_filter(function(w)
+        return not is_floating(w)
+      end, vim.api.nvim_list_wins())
+
+      if #real_wins == 1 and has_netrw then
+        local buf = vim.api.nvim_win_get_buf(real_wins[1])
         if vim.bo[buf].filetype == "netrw" then
           vim.cmd("quit")
         end

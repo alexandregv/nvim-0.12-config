@@ -3,6 +3,7 @@ if vim.loader then
 	vim.loader.enable()
 end
 
+require("ui")
 require("options")
 require("netrw")
 require("plugins")
