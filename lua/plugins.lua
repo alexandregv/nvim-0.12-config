@@ -7,8 +7,6 @@ vim.pack.add({
 
 	-- Libs
 	"https://github.com/nvim-lua/plenary.nvim", -- Utils lib
-	--"https://github.com/MunifTanjim/nui.nvim",  -- UI lib
-	--"https://github.com/rcarriga/nvim-notify",  -- Notifications lib
 
 	-- LSP
 	"https://github.com/mason-org/mason.nvim",                      -- Install external tools (LSPs, linters, etc) easily
@@ -24,9 +22,7 @@ vim.pack.add({
 	"https://github.com/nvim-lualine/lualine.nvim",             -- Status line
 	"https://github.com/yavorski/lualine-macro-recording.nvim", -- Macro recording section for Lualine
 	"https://github.com/lukas-reineke/indent-blankline.nvim",   -- Identation guides
-	-- "https://github.com/HiPhish/rainbow-delimiters.nvim",    -- Rainbow matching ({[]}) etc
-	-- "https://github.com/norcalli/nvim-colorizer.lua",        -- Hex color codes preview
-	"https://github.com/pakosaan/nvim-colorizer.lua",           -- Fix for nvim-colorizer, waiting for the PR to be merged
+	"https://github.com/pakosaan/nvim-colorizer.lua",           -- Hex color codes preview (fork, waiting for fix to be merged)
 	"https://github.com/folke/todo-comments.nvim",              -- Highlight and find TODO comments
 	"https://github.com/lewis6991/gitsigns.nvim.git",           -- Git signs
 
@@ -61,7 +57,6 @@ require("nvim-autopairs").setup()
 require("todo-comments").setup()
 require("ibl").setup()
 require("which-key").setup()
--- require("rainbow-delimiters.setup").setup({})
 require("gitsigns").setup()
 require("lualine").setup({
 	sections = {
