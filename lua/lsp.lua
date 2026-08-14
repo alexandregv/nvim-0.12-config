@@ -10,6 +10,7 @@ local mason_servers = {
 local lsp_servers = {
 	unpack(mason_servers),
 	"yamlls",
+	"pyright",
 }
 
 local tools = {
@@ -58,6 +59,19 @@ vim.lsp.config('gopls', {
 })
 vim.lsp.config('yamlls', {
 	cmd = { 'yaml-schema-router' },
+})
+vim.lsp.config('pyright', {
+	root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', '.venv', 'requirements.txt' },
+	settings = {
+		python = {
+			pythonPath = '',
+			venvPath = '.',
+			venv = '.venv',
+			analysis = {
+				typeCheckingMode = 'basic',
+			},
+		},
+	},
 })
 
 vim.lsp.enable(lsp_servers)
