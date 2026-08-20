@@ -9,10 +9,7 @@ vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim", -- Utils lib
 
 	-- LSP
-	"https://github.com/mason-org/mason.nvim",                      -- Install external tools (LSPs, linters, etc) easily
-	"https://github.com/mason-org/mason-lspconfig.nvim",            -- Use lspconfig names instead of Mason names + automatically enable servers
-	"https://github.com/neovim/nvim-lspconfig",	                    -- Pre-made LSP configs
-	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim", -- Ensure installation of tools (declaratively)
+	"https://github.com/neovim/nvim-lspconfig",	-- Pre-made LSP configs
 
 	-- Formatting & completion
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },    -- Parsing and syntax lib
@@ -36,6 +33,15 @@ vim.pack.add({
 	"https://github.com/stevearc/aerial.nvim",         -- Code outline window (symbols)
 	"https://github.com/ibhagwan/fzf-lua",             -- Fuzzy
 })
+
+-- Set to true in ../init.lua to use mason + mason-lspconfig + mason-tool-installer. Otherwise, provide binaries yourself.
+if use_mason then
+	vim.pack.add({
+		"https://github.com/mason-org/mason.nvim",                      -- Install external tools (LSPs, linters, etc) easily
+		"https://github.com/mason-org/mason-lspconfig.nvim",            -- Use lspconfig names instead of Mason names + automatically enable servers
+		"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim", -- Ensure installation of tools (declaratively)
+	})
+end
 
 require("better_escape").setup()
 require("guess-indent").setup({})

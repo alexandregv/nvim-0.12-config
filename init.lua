@@ -3,6 +3,9 @@ if vim.loader then
 	vim.loader.enable()
 end
 
+-- Set to true to use mason + mason-lspconfig + mason-tool-installer. Otherwise, provide binaries yourself.
+use_mason = false
+
 require("ui")
 require("options")
 require("netrw")

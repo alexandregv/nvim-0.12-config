@@ -36,6 +36,9 @@ So it's only about installing, providing configuration, and enabling. The actual
 
 A possible compromise could be to load these plugins only when needed, via a defined command, which would call `vim.pack.add({...})` and the setups.
 
+**UPDATE, 10 months later:** I now removed mason and prefer to install binaries with Nix and Home Manager. I kept the config as it may be useful to people who wants a simpler approach.  
+To re-enable mason, set `use_mason = true` in `init.lua`. Fill `lsp_servers` as always in `lsp.lua`, as well as `tools` if needed.
+
 ### Multi-files vs single-file
 
 I'm mitigated. Multi-files may be better organized, but sometimes creates dependency problems. It may be great for readabilty, but also forces to jump between files (e.g from plugins.lsp to lsp.lua).  
