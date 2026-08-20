@@ -50,9 +50,7 @@ vim.lsp.config('gopls', {
       staticcheck = true,
       gofumpt = true,
       renameMovesSubpackages = true,
-      analyses = { -- https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md
-        unusedparams = true,
-      },
+      -- analyses = {}, -- https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md
       hints = { -- https://github.com/golang/tools/blob/master/gopls/doc/inlayHints.md
         assignVariableTypes = true,
         compositeLiteralFields = true,
