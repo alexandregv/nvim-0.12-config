@@ -33,15 +33,28 @@ vim.api.nvim_create_autocmd("WinEnter", {
 
     if not only_netrw_or_term then return end
 
-    -- Close all terminal buffers (kills jobs; avoids hanging Neovim)
-    for _, b in ipairs(term_bufs) do
-      pcall(vim.api.nvim_feedkeys(":q\r", "n", false), b, {})
-    end
-
-    -- After terminals are gone, if netrw is the only remaining window, quit it.
+    -- Defer all window closing to avoid E1312
     vim.schedule(function()
+      -- Close terminal buffers
+      for _ in ipairs(term_bufs) do
+        vim.cmd("q")
+      end
+
+      -- Close quickfix/loclist windows
+      for _, win in ipairs(wins) do
+        if not is_floating(win) then
+          local buf = vim.api.nvim_win_get_buf(win)
+          if vim.bo[buf].filetype == "qf" then
+            vim.cmd("q")
+          end
+        end
+      end
+
+      -- If netrw is the only remaining window, quit it.
       local real_wins = vim.tbl_filter(function(w)
-        return not is_floating(w)
+        if is_floating(w) then return false end
+        local buf = vim.api.nvim_win_get_buf(w)
+        return vim.bo[buf].filetype ~= "qf"
       end, vim.api.nvim_list_wins())
 
       if #real_wins == 1 and has_netrw then
