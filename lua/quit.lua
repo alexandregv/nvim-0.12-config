@@ -18,13 +18,15 @@ vim.api.nvim_create_autocmd("WinEnter", {
         local buf = vim.api.nvim_win_get_buf(win)
         local ft  = vim.bo[buf].filetype
         local bt  = vim.bo[buf].buftype
+        local is_real = ft ~= "netrw" and bt ~= "terminal" and ft ~= "qf"
+        if is_real then
+          only_netrw_or_term = false
+          break
+        end
         if ft == "netrw" then
           has_netrw = true
         elseif bt == "terminal" then
           table.insert(term_bufs, buf)
-        else
-          only_netrw_or_term = false
-          break
         end
       end
     end
