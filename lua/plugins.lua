@@ -22,15 +22,17 @@ vim.pack.add({
 	"https://github.com/pakosaan/nvim-colorizer.lua",           -- Hex color codes preview (fork, waiting for fix to be merged)
 	"https://github.com/folke/todo-comments.nvim",              -- Highlight and find TODO comments
 	"https://github.com/lewis6991/gitsigns.nvim.git",           -- Git signs
+	"https://github.com/stevearc/aerial.nvim",                  -- Code outline window (symbols)
+	"https://github.com/folke/which-key.nvim",                  -- Keybinds help menu
+
+	-- Editing
+	"https://github.com/NMAC427/guess-indent.nvim",    -- Auto detect indentation width
+	"https://github.com/windwp/nvim-autopairs",        -- Automatically add closing pairs
+	"https://github.com/numToStr/Comment.nvim",        -- Easy comments (might require github.com/JoosepAlviste/nvim-ts-context-commentstring later, will see)
 
 	-- Misc
-	"https://github.com/folke/which-key.nvim",         -- Keybinds help menu
-	"https://github.com/NMAC427/guess-indent.nvim",    -- Auto detect indentation width
 	"https://github.com/olexsmir/gopher.nvim",         -- Go utils (e.g :GoIferr)
-	"https://github.com/windwp/nvim-autopairs",        -- Automatically add closing pairs
 	"https://github.com/max397574/better-escape.nvim", -- Map jj or jk without delay
-	"https://github.com/numToStr/Comment.nvim",        -- Easy comments (might require github.com/JoosepAlviste/nvim-ts-context-commentstring later, will see)
-	"https://github.com/stevearc/aerial.nvim",         -- Code outline window (symbols)
 	"https://github.com/ibhagwan/fzf-lua",             -- Fuzzy
 })
 
