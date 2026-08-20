@@ -4,6 +4,7 @@ end
 
 local lsp_servers = {
 	"lua_ls",
+	"stylua",
 	"gopls",
 	"yamlls",
 	"pyright",
@@ -27,6 +28,9 @@ vim.lsp.config("lua_ls", {
 		Lua = {
 			runtime = {
 				version = "LuaJIT",
+			},
+			format = {
+				enable = false, -- Use stylua for formatting
 			},
 			diagnostics = {
 				globals = {
