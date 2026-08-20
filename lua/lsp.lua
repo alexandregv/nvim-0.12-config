@@ -11,6 +11,7 @@ local lsp_servers = {
 	unpack(mason_servers),
 	"yamlls",
 	"pyright",
+	"nil_ls",
 }
 
 local tools = {
