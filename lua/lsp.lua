@@ -44,6 +44,7 @@ vim.lsp.config("lua_ls", {
 	},
 })
 vim.lsp.config('gopls', {
+	cmd = { 'gopls', '-remote=auto' }, -- https://github.com/golang/tools/blob/master/gopls/doc/daemon.md
   settings = { -- https://go.dev/gopls/settings
     gopls = {
       semanticTokens = true,
