@@ -38,10 +38,13 @@ require("which-key").add({
 })
 
 local function lsp_definition() vim.lsp.buf.definition() end
+local function lsp_references() vim.lsp.buf.references() end
 local function lsp_inlay_hint() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end
 
 keymap("n", "gd", lsp_definition, { noremap = true, silent = true, desc = "Go to definition (LSP)" })
+keymap("n", "gr", lsp_references, { noremap = true, silent = true, desc = "Go to references (LSP)" })
 keymap("n", "<leader>ld", lsp_definition, { desc = "Go to definition" })
+keymap("n", "<leader>lr", lsp_references, { desc = "Go to references" })
 keymap("n", "<leader>lh", lsp_inlay_hint, { desc = "Toggle Inlay Hints", silent = true })
 
 -- Comment
