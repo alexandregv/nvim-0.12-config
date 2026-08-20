@@ -84,4 +84,5 @@ vim.lsp.config('pyright', {
 })
 
 vim.lsp.enable(lsp_servers)
+vim.lsp.codelens.enable(true)
 vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
