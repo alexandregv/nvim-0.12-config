@@ -36,9 +36,13 @@ vim.keymap.set("n", "<leader>F", "<cmd>FzfLua files<CR>", { desc = "Browse files
 require("which-key").add({
   { "<leader>l", group = "LSP" },
 })
-keymap("n", "gd", function() vim.lsp.buf.definition() end, { noremap = true, silent = true, desc = "Go to definition (LSP)" })
-keymap("n", "<leader>ld", "gd")
-keymap("n", "<leader>lh", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "Toggle Inlay Hints", silent = true })
+
+local function lsp_definition() vim.lsp.buf.definition() end
+local function lsp_inlay_hint() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end
+
+keymap("n", "gd", lsp_definition, { noremap = true, silent = true, desc = "Go to definition (LSP)" })
+keymap("n", "<leader>ld", lsp_definition, { desc = "Go to definition" })
+keymap("n", "<leader>lh", lsp_inlay_hint, { desc = "Toggle Inlay Hints", silent = true })
 
 -- Comment
 keymap("n", "<leader>/", function()
