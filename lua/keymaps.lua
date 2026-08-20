@@ -38,14 +38,28 @@ require("which-key").add({
 })
 
 local function lsp_definition() vim.lsp.buf.definition() end
+local function lsp_declaration() vim.lsp.buf.declaration() end
 local function lsp_references() vim.lsp.buf.references() end
+local function lsp_implem() vim.lsp.buf.implementation() end
+local function lsp_rename() vim.lsp.buf.rename() end
+local function lsp_code_action() vim.lsp.buf.code_action() end
+local function lsp_format() vim.lsp.buf.format({ async = true }) end
 local function lsp_inlay_hint() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end
+local function diag_float() vim.diagnostic.open_float() end
 
-keymap("n", "gd", lsp_definition, { noremap = true, silent = true, desc = "Go to definition (LSP)" })
-keymap("n", "gr", lsp_references, { noremap = true, silent = true, desc = "Go to references (LSP)" })
-keymap("n", "<leader>ld", lsp_definition, { desc = "Go to definition" })
-keymap("n", "<leader>lr", lsp_references, { desc = "Go to references" })
-keymap("n", "<leader>lh", lsp_inlay_hint, { desc = "Toggle Inlay Hints", silent = true })
+keymap("n", "gd", lsp_definition,  { noremap = true, silent = true, desc = "Go to definition (LSP)" })
+keymap("n", "gD", lsp_declaration, { noremap = true, silent = true, desc = "Go to declaration (LSP)" })
+keymap("n", "gr", lsp_references,  { noremap = true, silent = true, desc = "Go to references (LSP)" })
+keymap("n", "gi", lsp_implem,      { noremap = true, silent = true, desc = "Go to implementation (LSP)" })
+keymap("n", "gl", diag_float,      { noremap = true, silent = true, desc = "Show diagnostics (LSP)" })
+keymap("n", "<leader>ld", lsp_definition,  { desc = "Go to definition" })
+keymap("n", "<leader>lr", lsp_references,  { desc = "Go to references" })
+keymap("n", "<leader>li", lsp_implem,      { desc = "Go to implementation" })
+keymap("n", "<leader>lD", lsp_declaration, { desc = "Go to declaration" })
+keymap("n", "<leader>ln", lsp_rename,      { desc = "Rename symbol" })
+keymap("n", "<leader>la", lsp_code_action, { desc = "Code action" })
+keymap("n", "<leader>lf", lsp_format,      { desc = "Format file" })
+keymap("n", "<leader>lh", lsp_inlay_hint,  { desc = "Toggle Inlay Hints", silent = true })
 
 -- Comment
 keymap("n", "<leader>/", function()
