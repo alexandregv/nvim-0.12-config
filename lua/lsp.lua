@@ -44,14 +44,22 @@ vim.lsp.config("lua_ls", {
 	},
 })
 vim.lsp.config('gopls', {
-  settings = {
+  settings = { -- https://go.dev/gopls/settings
     gopls = {
-      hints = {
+      semanticTokens = true,
+      staticcheck = true,
+      gofumpt = true,
+      renameMovesSubpackages = true,
+      analyses = { -- https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md
+        unusedparams = true,
+      },
+      hints = { -- https://github.com/golang/tools/blob/master/gopls/doc/inlayHints.md
         assignVariableTypes = true,
         compositeLiteralFields = true,
         compositeLiteralTypes = true,
         constantValues = true,
         functionTypeParameters = true,
+        ignoredError = true,
         parameterNames = true,
         rangeVariableTypes = true,
       },
