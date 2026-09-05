@@ -70,6 +70,10 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
+    "nvim-web-devicons": {
+      "rev": "5f032a85be210cd1c6ac98861eb3b187ff3bd5eb",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
     "plenary.nvim": {
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"

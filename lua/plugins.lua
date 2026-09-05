@@ -24,6 +24,7 @@ vim.pack.add({
 	"https://github.com/lewis6991/gitsigns.nvim.git",           -- Git signs
 	"https://github.com/stevearc/aerial.nvim",                  -- Code outline window (symbols)
 	"https://github.com/folke/which-key.nvim",                  -- Keybinds help menu
+	"https://github.com/nvim-tree/nvim-web-devicons",           -- Nerd icons
 
 	-- Editing
 	"https://github.com/NMAC427/guess-indent.nvim",    -- Auto detect indentation width
