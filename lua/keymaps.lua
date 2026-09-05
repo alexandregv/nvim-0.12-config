@@ -91,3 +91,8 @@ local function jump_float()
 end
 
 vim.keymap.set("n", "<C-w>f", jump_float, { desc = "Jump to/from floating window" })
+
+-- Toggle between relative / static line numbers
+vim.keymap.set({ 'n', 'v' }, '<leader>n', function()
+  vim.opt.relativenumber = not vim.opt.relativenumber:get()
+end)
