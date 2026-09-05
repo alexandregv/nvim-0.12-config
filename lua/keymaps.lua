@@ -64,16 +64,8 @@ keymap("n", "<leader>lf", lsp_format,       { desc = "Format file" })
 keymap("n", "<leader>lh", lsp_inlay_hint,   { desc = "Toggle Inlay Hints", silent = true })
 keymap("n", "<leader>lc", lsp_codelens_run, { desc = "Run CodeLens" })
 
--- Comment
-keymap("n", "<leader>/", function()
-  return require("Comment.api").call("toggle.linewise." .. (vim.v.count == 0 and "current" or "count_repeat"), "g@$")() end,
-  { expr = true, silent = true, desc = "Toggle comment line" }
-)
-keymap("x", "<leader>/","<Esc><Cmd>lua require('Comment.api').locked('toggle.linewise')(vim.fn.visualmode())<CR>", { desc = "Toggle comment" })
-
 -- Symbols
 vim.keymap.set("n", "<leader>s", "<cmd>AerialToggle!<CR>", { desc = "Toggle Symbols (Aerial)" })
-
 
 -- Keep track of the last window we came from
 local last_win = nil

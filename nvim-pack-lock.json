@@ -1,9 +1,5 @@
 {
   "plugins": {
-    "Comment.nvim": {
-      "rev": "e30b7f2",
-      "src": "https://github.com/numToStr/Comment.nvim"
-    },
     "aerial.nvim": {
       "rev": "5e687b5",
       "src": "https://github.com/stevearc/aerial.nvim"

@@ -28,7 +28,6 @@ vim.pack.add({
 	-- Editing
 	"https://github.com/NMAC427/guess-indent.nvim",    -- Auto detect indentation width
 	"https://github.com/windwp/nvim-autopairs",        -- Automatically add closing pairs
-	"https://github.com/numToStr/Comment.nvim",        -- Easy comments (might require github.com/JoosepAlviste/nvim-ts-context-commentstring later, will see)
 
 	-- Misc
 	"https://github.com/olexsmir/gopher.nvim",         -- Go utils (e.g :GoIferr)
@@ -47,7 +46,6 @@ end
 
 require("better_escape").setup()
 require("guess-indent").setup({})
-require("Comment").setup()
 require("gopher").setup({})
 
 require("aerial").setup({
