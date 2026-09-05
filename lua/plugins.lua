@@ -50,6 +50,7 @@ require("gopher").setup({})
 
 require("aerial").setup({
 	backends = { "lsp", "markdown", "asciidoc", "man" },
+	open_automatic = true,
   on_attach = function(bufnr)
     vim.keymap.set("n", "_", "<cmd>AerialPrev<CR>", { buffer = bufnr })
     vim.keymap.set("n", "-", "<cmd>AerialPrev<CR>", { buffer = bufnr })
